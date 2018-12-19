@@ -6,6 +6,7 @@
 #include "core/Config.h"
 #include "core/Controller.h"
 #include "interfaces/IThread.h"
+#include "Mem.h"
 
 struct cryptonight_ctx {
     alignas(16) uint8_t state[224];
@@ -27,24 +28,28 @@ extern "C" int scanhash_cryptonight_keva(int thr_id, void* threadInfo, struct wo
 		ptarget[7] = 0x00ff;
 	}
 
+	xmrig::CpuThread* thread = reinterpret_cast<xmrig::CpuThread*>(threadInfo);
+	cryptonight_ctx ctx[1];
+	cryptonight_ctx* pctx = (cryptonight_ctx*)ctx;
+	MemInfo memory = Mem::create(&pctx, thread->algorithm(), 1);
+
 	do
 	{
-		cryptonight_ctx* ctx;
 		uint32_t hash[8];
-		xmrig::CpuThread* thread = reinterpret_cast<xmrig::CpuThread*>(threadInfo);
-		thread->fn(variant)(pdata, 80, (uint8_t*)hash, &ctx);
-		*hashes_done ++;
+		thread->fn(variant)(pdata, 80, (uint8_t*)hash, &pctx);
+		*hashes_done = *hashes_done + 1;
 		if(hash[7] <= Htarg && fulltest(hash, ptarget)) {
 			work->nonces[0] = *nonceptr;
 			work_set_target_ratio(work, hash);
 			res = 1;
 			goto done;
 		}
-		*nonceptr ++;
+		*nonceptr = *nonceptr + 1;
 	} while (!work_restart[thr_id].restart && max_nonce > *nonceptr);
 
 done:
 	gpulog(LOG_DEBUG, thr_id, "nonce %08x exit", *nonceptr);
+	Mem::release(&pctx, 1, memory);
 	work->valid_nonces = res;
 	if (res == 1) {
 		*nonceptr = work->nonces[0];
