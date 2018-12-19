@@ -9,7 +9,7 @@
  * any later version.  See COPYING for more details.
  */
 
-#include <ccminer-config.h>
+#include <ccminer-config-win.h>
 
 #include <vector>
 #include <stdio.h>

@@ -240,6 +240,12 @@
     <ClCompile Include="Mem_win.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Mem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="common\net\Job.cpp">
+      <Filter>Source Files\net</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="algos.h">
@@ -430,8 +436,8 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <None Include="crypto\asm\win64\cnv2_main_loop.asm">
+    <MASM Include="crypto\asm\win64\cnv2_main_loop.asm">
       <Filter>Source Files\crypto</Filter>
-    </None>
+    </MASM>
   </ItemGroup>
 </Project>

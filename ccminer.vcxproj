@@ -39,6 +39,9 @@
     <UseDebugLibraries>true</UseDebugLibraries>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
@@ -231,6 +234,7 @@
     <ClCompile Include="common\log\ConsoleLog.cpp" />
     <ClCompile Include="common\log\FileLog.cpp" />
     <ClCompile Include="common\log\Log.cpp" />
+    <ClCompile Include="common\net\Job.cpp" />
     <ClCompile Include="common\net\Pool.cpp" />
     <ClCompile Include="common\Platform.cpp" />
     <ClCompile Include="common\Platform_win.cpp" />
@@ -246,6 +250,7 @@
     <ClCompile Include="compat\jansson\strconv.c" />
     <ClCompile Include="compat\jansson\utf.c" />
     <ClCompile Include="compat\jansson\value.c" />
+    <ClCompile Include="Mem.cpp" />
     <ClCompile Include="Mem_win.cpp" />
     <ClCompile Include="workers\CpuThread.cpp" />
     <ClCompile Include="workers\Handle.cpp" />
@@ -351,9 +356,14 @@
     <Text Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="crypto\asm\win64\cnv2_main_loop.asm" />
+    <MASM Include="crypto\asm\win64\cnv2_main_loop.asm">
+      <FileType>Document</FileType>
+    </MASM>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
   <!-- Copy the required dlls -->
   <Target Name="AfterBuild">
     <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
