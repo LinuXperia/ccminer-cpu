@@ -49,7 +49,7 @@ static __inline int setpriority(int which, int who, int prio)
 #define strdup(...) _strdup(__VA_ARGS__)
 #define strncasecmp(x,y,z) _strnicmp(x,y,z)
 #define strcasecmp(x,y) _stricmp(x,y)
-typedef int ssize_t;
+typedef intptr_t ssize_t;
 
 __inline int msver(void) {
 	switch (_MSC_VER) {

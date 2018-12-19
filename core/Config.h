@@ -34,6 +34,14 @@
 #include "rapidjson/fwd.h"
 #include "workers/CpuThread.h"
 
+#ifndef PRI64
+#define PRId64    "lld"
+#endif
+
+#ifndef PRIX64
+#define PRIX64    "llx"
+#endif
+
 
 class Addr;
 class Url;

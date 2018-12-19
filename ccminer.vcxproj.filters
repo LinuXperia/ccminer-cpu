@@ -46,12 +46,6 @@
     <Filter Include="Source Files\crypto">
       <UniqueIdentifier>{fea0fce3-c0fe-42f7-aa37-0cbba10b008a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\crypto\xmr">
-      <UniqueIdentifier>{af52b078-ed91-4c6e-b07a-e9243acc85d2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\crypto\bbr">
-      <UniqueIdentifier>{af387eac-e9e6-4e91-a5e8-637b1e7a8d93}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\core">
       <UniqueIdentifier>{56076a92-5bf9-4f3e-97b0-03305dcdf6ee}</UniqueIdentifier>
     </Filter>
@@ -60,12 +54,6 @@
     </Filter>
     <Filter Include="Source Files\workers">
       <UniqueIdentifier>{e9ba2953-8f0a-46df-8433-750beee8db87}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\amd">
-      <UniqueIdentifier>{b8d1bbe8-e0fb-4053-add5-4c908bcc5b79}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\crypto\cpu">
-      <UniqueIdentifier>{071df4bf-c096-4dcb-bd35-0d90359ca2ed}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\net">
       <UniqueIdentifier>{c4e48b9b-6147-4c54-9be1-24e23b991df4}</UniqueIdentifier>
@@ -153,39 +141,6 @@
     <ClCompile Include="crypto\xmr-rpc.cpp">
       <Filter>Source Files\crypto</Filter>
     </ClCompile>
-    <ClCompile Include="crypto\aesb.cpp">
-      <Filter>Source Files\crypto\xmr</Filter>
-    </ClCompile>
-    <ClCompile Include="crypto\cpu\c_keccak.c">
-      <Filter>Source Files\crypto\xmr</Filter>
-    </ClCompile>
-    <ClCompile Include="crypto\oaes_lib.cpp">
-      <Filter>Source Files\crypto\xmr</Filter>
-    </ClCompile>
-    <ClCompile Include="crypto\cryptonight-cpu.c">
-      <Filter>Source Files\crypto\xmr</Filter>
-    </ClCompile>
-    <ClCompile Include="crypto\mman.c">
-      <Filter>Source Files\crypto\bbr</Filter>
-    </ClCompile>
-    <ClCompile Include="crypto\wildkeccak-cpu.cpp">
-      <Filter>Source Files\crypto\bbr</Filter>
-    </ClCompile>
-    <ClCompile Include="amd\OclCache.cpp">
-      <Filter>Source Files\amd</Filter>
-    </ClCompile>
-    <ClCompile Include="amd\OclCache_win.cpp">
-      <Filter>Source Files\amd</Filter>
-    </ClCompile>
-    <ClCompile Include="amd\OclCLI.cpp">
-      <Filter>Source Files\amd</Filter>
-    </ClCompile>
-    <ClCompile Include="amd\OclGPU.cpp">
-      <Filter>Source Files\amd</Filter>
-    </ClCompile>
-    <ClCompile Include="amd\OclLib.cpp">
-      <Filter>Source Files\amd</Filter>
-    </ClCompile>
     <ClCompile Include="common\Platform.cpp">
       <Filter>Source Files\common</Filter>
     </ClCompile>
@@ -234,38 +189,56 @@
     <ClCompile Include="core\Controller.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
-    <ClCompile Include="workers\OclThread.cpp">
-      <Filter>Source Files\workers</Filter>
-    </ClCompile>
-    <ClCompile Include="crypto\cryptonight.cpp">
-      <Filter>Source Files\crypto\xmr</Filter>
-    </ClCompile>
-    <ClCompile Include="crypto\cpu\aesb.c">
-      <Filter>Source Files\crypto\cpu</Filter>
-    </ClCompile>
-    <ClCompile Include="crypto\cpu\c_blake256.c">
-      <Filter>Source Files\crypto\cpu</Filter>
-    </ClCompile>
-    <ClCompile Include="crypto\cpu\c_groestl.c">
-      <Filter>Source Files\crypto\cpu</Filter>
-    </ClCompile>
-    <ClCompile Include="crypto\cpu\c_jh.c">
-      <Filter>Source Files\crypto\cpu</Filter>
-    </ClCompile>
-    <ClCompile Include="crypto\cpu\c_skein.c">
-      <Filter>Source Files\crypto\cpu</Filter>
-    </ClCompile>
-    <ClCompile Include="crypto\cpu\hash.c">
-      <Filter>Source Files\crypto\cpu</Filter>
-    </ClCompile>
-    <ClCompile Include="crypto\cpu\oaes_lib.c">
-      <Filter>Source Files\crypto\cpu</Filter>
-    </ClCompile>
     <ClCompile Include="net\Network.cpp">
       <Filter>Source Files\net</Filter>
     </ClCompile>
     <ClCompile Include="base\tools\String.cpp">
       <Filter>Source Files\base</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\aesb.cpp">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\Asm.cpp">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\c_blake256.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\c_groestl.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\c_jh.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\c_skein.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\cryptonight.cpp">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto\wildkeccak-cpu.cpp">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="workers\CpuThread.cpp">
+      <Filter>Source Files\workers</Filter>
+    </ClCompile>
+    <ClCompile Include="workers\Handle.cpp">
+      <Filter>Source Files\workers</Filter>
+    </ClCompile>
+    <ClCompile Include="workers\Hashrate.cpp">
+      <Filter>Source Files\workers</Filter>
+    </ClCompile>
+    <ClCompile Include="workers\MultiWorker.cpp">
+      <Filter>Source Files\workers</Filter>
+    </ClCompile>
+    <ClCompile Include="workers\Worker.cpp">
+      <Filter>Source Files\workers</Filter>
+    </ClCompile>
+    <ClCompile Include="workers\Workers.cpp">
+      <Filter>Source Files\workers</Filter>
+    </ClCompile>
+    <ClCompile Include="Mem_win.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -294,9 +267,6 @@
       <Filter>Header Files\compat\getopt</Filter>
     </ClInclude>
     <ClInclude Include="compat\stdbool.h">
-      <Filter>Header Files\compat</Filter>
-    </ClInclude>
-    <ClInclude Include="compat\ccminer-config.h">
       <Filter>Header Files\compat</Filter>
     </ClInclude>
     <ClInclude Include="uint256.h">
@@ -437,14 +407,11 @@
     <ClInclude Include="crypto\xmr-rpc.h">
       <Filter>Source Files\crypto</Filter>
     </ClInclude>
-    <ClInclude Include="crypto\mman.h">
-      <Filter>Source Files\crypto\bbr</Filter>
-    </ClInclude>
-    <ClInclude Include="crypto\wildkeccak.h">
-      <Filter>Source Files\crypto\bbr</Filter>
-    </ClInclude>
     <ClInclude Include="x16\cuda_x16.h">
       <Filter>Header Files\CUDA</Filter>
+    </ClInclude>
+    <ClInclude Include="compat\ccminer-config-win.h">
+      <Filter>Header Files\compat</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -461,5 +428,10 @@
     <Text Include="README.txt">
       <Filter>Ressources</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="crypto\asm\win64\cnv2_main_loop.asm">
+      <Filter>Source Files\crypto</Filter>
+    </None>
   </ItemGroup>
 </Project>

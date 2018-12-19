@@ -26,7 +26,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v141</PlatformToolset>
     <CLRSupport>false</CLRSupport>
     <LinkIncremental>false</LinkIncremental>
@@ -219,11 +219,6 @@
     </CudaLink>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="amd\OclCache.cpp" />
-    <ClCompile Include="amd\OclCache_win.cpp" />
-    <ClCompile Include="amd\OclCLI.cpp" />
-    <ClCompile Include="amd\OclGPU.cpp" />
-    <ClCompile Include="amd\OclLib.cpp" />
     <ClCompile Include="base\tools\String.cpp" />
     <ClCompile Include="common\config\CommonConfig.cpp" />
     <ClCompile Include="common\config\ConfigLoader.cpp" />
@@ -251,6 +246,14 @@
     <ClCompile Include="compat\jansson\strconv.c" />
     <ClCompile Include="compat\jansson\utf.c" />
     <ClCompile Include="compat\jansson\value.c" />
+    <ClCompile Include="Mem_win.cpp" />
+    <ClCompile Include="workers\CpuThread.cpp" />
+    <ClCompile Include="workers\Handle.cpp" />
+    <ClCompile Include="workers\Hashrate.cpp" />
+    <ClCompile Include="workers\MultiWorker.cpp" />
+    <ClCompile Include="workers\Worker.cpp" />
+    <ClCompile Include="workers\Workers.cpp" />
+    <ClInclude Include="compat\ccminer-config-win.h" />
     <ClInclude Include="compat\pthreads\pthread.h" />
     <ClCompile Include="compat\winansi.c" />
     <ClCompile Include="ccminer.cpp">
@@ -259,21 +262,15 @@
     </ClCompile>
     <ClCompile Include="core\Config.cpp" />
     <ClCompile Include="core\Controller.cpp" />
-    <ClCompile Include="crypto\cpu\aesb.c" />
-    <ClCompile Include="crypto\cpu\c_blake256.c" />
-    <ClCompile Include="crypto\cpu\c_groestl.c" />
-    <ClCompile Include="crypto\cpu\c_jh.c" />
-    <ClCompile Include="crypto\cpu\c_skein.c" />
-    <ClCompile Include="crypto\cpu\hash.c" />
-    <ClCompile Include="crypto\cpu\oaes_lib.c" />
+    <ClCompile Include="crypto\aesb.cpp" />
+    <ClCompile Include="crypto\Asm.cpp" />
     <ClCompile Include="crypto\cryptonight.cpp" />
-    <ClCompile Include="crypto\mman.c" />
+    <ClCompile Include="crypto\c_blake256.c" />
+    <ClCompile Include="crypto\c_groestl.c" />
+    <ClCompile Include="crypto\c_jh.c" />
+    <ClCompile Include="crypto\c_skein.c" />
     <ClCompile Include="crypto\wildkeccak-cpu.cpp" />
     <ClCompile Include="crypto\xmr-rpc.cpp" />
-    <ClCompile Include="crypto\aesb.cpp" />
-    <ClCompile Include="crypto\oaes_lib.cpp" />
-    <ClCompile Include="crypto\cryptonight-cpu.c" />
-    <ClCompile Include="crypto\cpu\c_keccak.c" />
     <ClCompile Include="net\Network.cpp" />
     <ClCompile Include="pools.cpp" />
     <ClCompile Include="util.cpp" />
@@ -287,7 +284,6 @@
     <ClCompile Include="crc32.c" />
     <ClInclude Include="x16\cuda_x16.h" />
     <ClCompile Include="sph\sha2.c" />
-    <ClCompile Include="workers\OclThread.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="compat.h" />
@@ -307,9 +303,6 @@
     <ClInclude Include="compat\sys\time.h" />
     <ClInclude Include="compat\unistd.h" />
     <ClInclude Include="compat\winansi.h" />
-    <ClInclude Include="compat\ccminer-config.h" />
-    <ClInclude Include="crypto\mman.h" />
-    <ClInclude Include="crypto\wildkeccak.h" />
     <ClInclude Include="crypto\xmr-rpc.h" />
     <ClInclude Include="cuda_groestlcoin.h" />
     <ClInclude Include="cuda_helper.h" />
@@ -356,6 +349,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="crypto\asm\win64\cnv2_main_loop.asm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <!-- Copy the required dlls -->

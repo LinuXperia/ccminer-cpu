@@ -5,7 +5,11 @@
 extern "C" {
 #endif
 
+#ifdef _MSC_VER
+#include <ccminer-config-win.h>
+#else
 #include <ccminer-config.h>
+#endif
 
 #include <stdbool.h>
 #include <inttypes.h>
