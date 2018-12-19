@@ -63,6 +63,7 @@ BOOL WINAPI ConsoleHandler(DWORD);
 #include "interfaces/IThread.h"
 #include "common/cpu/Cpu.h"
 #include "common/Platform.h"
+#include "Mem.h"
 
 xmrig::Controller* g_controller;
 
@@ -3477,6 +3478,8 @@ int main(int argc, char *argv[])
 		applog(LOG_ERR, "Failed to initialize controller! terminating.");
 		exit(1);
 	}
+	Mem::init(g_controller->config()->isHugePages());
+
 	const std::vector<xmrig::IThread *> &threads = g_controller->config()->threads();
     for (xmrig::IThread *thread : threads) {
 		if (xmrig::Cpu::info()->threads() > 1 && thread->affinity() != -1L) {
