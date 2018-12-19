@@ -12,15 +12,15 @@
     "background": false,
     "cache": true,
     "colors": true,
+    "max-cpu-usage": 75,
+    "cpu-affinity": null,
+    "cpu-priority": null,
+    "hw-aes": true,
     "donate-level": 1,
     "log-file": null,
-    "opencl-platform": "INTEL",
-    "opencl-loader": "libOpenCL.so",
     "pools": [
         {
-            "url": "pool.monero.hashvault.pro:3333",
-            "user": "45h98VcgAtnipurrgqGPHh6YFW9ckK97f6uCASRc8CDZLMQ5MFwCitXgFXzVjutPHhXBLwhtbi9FrZ65r89e8JXCSH2Y1jW",
-            "pass": "x:jianpingw@gmail.com",
+            "url": "do.not.use:1234",
             "rig-id": null,
             "nicehash": false,
             "keepalive": true,
@@ -32,28 +32,7 @@
     "print-time": 60,
     "retries": 5,
     "retry-pause": 5,
-    "threads": [
-        {
-          "index" : 0,
-          "intensity" : 944,
-          "worksize" : 16,
-          "affine_to_cpu" : false,
-          "strided_index" : 2,
-          "mem_chunk" : 2,
-          "unroll" : 8,
-          "comp_mode" : true
-        },
-        {
-          "index" : 0,
-          "intensity" : 944,
-          "worksize" : 16,
-          "affine_to_cpu" : false,
-          "strided_index" : 2,
-          "mem_chunk" : 2,
-          "unroll" : 8,
-          "comp_mode" : true
-        }
-    ],
+    "threads": null,
     "user-agent": null,
     "syslog": false,
     "watch": false
