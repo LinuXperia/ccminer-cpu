@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{36DC07F9-A4A6-4877-A146-1B960083CF6F}</ProjectGuid>
+    <RootNamespace>ccminer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+    <CLRSupport>false</CLRSupport>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Users\jianp\work\ccminer-amd\3rdparty;C:\xmrig-deps\msvc2017\x64\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Users\jianp\work\ccminer-amd\3rdparty;C:\xmrig-deps\msvc2017\x64\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;CURL_STATICLIB;SCRYPT_KECCAK512;SCRYPT_CHACHA;SCRYPT_CHOOSE_COMPILETIME;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;compat;compat\curl-for-windows\curl\include;compat\jansson;compat\getopt;compat\pthreads;compat\curl-for-windows\openssl\openssl\include;compat\curl-for-windows\zlib;%(AdditionalIncludeDirectories);$(CudaToolkitIncludeDir)</AdditionalIncludeDirectories>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>libuv.lib;libcurl.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;pthreadVC2.lib;libcurl.x86.lib;openssl.x86.lib;zlib.x86.lib;ws2_32.lib;Wldap32.lib;nvapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib;msvcrt.lib</IgnoreSpecificDefaultLibraries>
+      <AdditionalLibraryDirectories>C:\xmrig-deps\msvc2017\x64\lib;compat\pthreads\x86;compat\curl-for-windows\out\x86\Release\lib;compat\nvapi\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/NODEFAULTLIB:LIBCMT %(AdditionalOptions)</AdditionalOptions>
+      <LinkStatus>true</LinkStatus>
+    </Link>
+    <CudaCompile>
+      <CInterleavedPTX>false</CInterleavedPTX>
+      <GenerateLineInfo>true</GenerateLineInfo>
+      <MaxRegCount>80</MaxRegCount>
+      <PtxAsOptionV>true</PtxAsOptionV>
+      <Keep>true</Keep>
+      <CodeGeneration>compute_50,sm_50</CodeGeneration>
+      <Include>$(NVTOOLSEXT_PATH)\include;..\..\..\Common\C99</Include>
+    </CudaCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;CURL_STATICLIB;SCRYPT_KECCAK512;SCRYPT_CHACHA;SCRYPT_CHOOSE_COMPILETIME;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;compat;compat\jansson;compat\getopt;compat\pthreads;%(AdditionalIncludeDirectories);C:\keva-deps\msvc2017\x64\include;.\3rdparty</AdditionalIncludeDirectories>
+      <StructMemberAlignment>8Bytes</StructMemberAlignment>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>userenv.lib;iphlpapi.lib;psapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;pthreadVC2.lib;libcurl_a.lib;zlib.lib;ws2_32.lib;Wldap32.lib;nvapi64.lib;libcrypto.lib;libssl.lib;crypt32.lib;libuv.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
+      <AdditionalLibraryDirectories>compat\pthreads\x64;compat\nvapi\amd64;%(AdditionalLibraryDirectories);C:\keva-deps\msvc2017\x64\lib</AdditionalLibraryDirectories>
+      <AdditionalOptions>/NODEFAULTLIB:LIBCMTD %(AdditionalOptions)</AdditionalOptions>
+      <LinkStatus>true</LinkStatus>
+    </Link>
+    <CudaCompile>
+      <CInterleavedPTX>false</CInterleavedPTX>
+      <GenerateLineInfo>true</GenerateLineInfo>
+      <MaxRegCount>80</MaxRegCount>
+      <PtxAsOptionV>true</PtxAsOptionV>
+      <Keep>true</Keep>
+      <CodeGeneration>compute_52,sm_52</CodeGeneration>
+      <Include>$(NVTOOLSEXT_PATH)\include;..\..\..\Common\C99</Include>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+    </CudaCompile>
+    <CudaLink>
+      <PerformDeviceLink>false</PerformDeviceLink>
+    </CudaLink>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <CompileAsManaged>false</CompileAsManaged>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;CURL_STATICLIB;SCRYPT_KECCAK512;SCRYPT_CHACHA;SCRYPT_CHOOSE_COMPILETIME;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;compat;compat\curl-for-windows\curl\include;compat\jansson;compat\getopt;compat\pthreads;compat\curl-for-windows\openssl\openssl\include;compat\curl-for-windows\zlib;%(AdditionalIncludeDirectories);$(CudaToolkitIncludeDir)</AdditionalIncludeDirectories>
+      <MinimalRebuild>true</MinimalRebuild>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>libuv.lib;libcurl.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;pthreadVC2.lib;libcurl.x86.lib;openssl.x86.lib;zlib.x86.lib;ws2_32.lib;Wldap32.lib;nvapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
+      <AdditionalLibraryDirectories>C:\xmrig-deps\msvc2017\x64\lib;compat\pthreads\x86;compat\curl-for-windows\out\x86\Release\lib;compat\nvapi\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/NODEFAULTLIB:LIBCMT %(AdditionalOptions)</AdditionalOptions>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <LinkStatus>false</LinkStatus>
+      <LargeAddressAware>true</LargeAddressAware>
+    </Link>
+    <CudaCompile>
+      <CInterleavedPTX>false</CInterleavedPTX>
+      <MaxRegCount>80</MaxRegCount>
+      <PtxAsOptionV>true</PtxAsOptionV>
+      <Keep>true</Keep>
+      <CodeGeneration>compute_50,sm_50;compute_52,sm_52;compute_30,sm_30</CodeGeneration>
+      <AdditionalOptions>--ptxas-options="-O2" --Wno-deprecated-gpu-targets %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>O2</Optimization>
+    </CudaCompile>
+    <CudaLink>
+      <GPUDebugInfo>false</GPUDebugInfo>
+      <Optimization>O3</Optimization>
+    </CudaLink>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableEnhancedInstructionSet>
+      </EnableEnhancedInstructionSet>
+      <OpenMPSupport>true</OpenMPSupport>
+      <CompileAsManaged>false</CompileAsManaged>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;CURL_STATICLIB;SCRYPT_KECCAK512;SCRYPT_CHACHA;SCRYPT_CHOOSE_COMPILETIME;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;compat;compat\jansson;compat\getopt;compat\pthreads;%(AdditionalIncludeDirectories);C:\keva-deps\msvc2017\x64\include;.\3rdparty</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>userenv.lib;iphlpapi.lib;psapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;pthreadVC2.lib;libcurl_a.lib;libcrypto.lib;libssl.lib;zlib.lib;ws2_32.lib;Wldap32.lib;nvapi64.lib;crypt32.lib;libuv.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
+      <AdditionalLibraryDirectories>compat\pthreads\x64;compat\nvapi\amd64;%(AdditionalLibraryDirectories);C:\keva-deps\msvc2017\x64\lib</AdditionalLibraryDirectories>
+      <AdditionalOptions>/NODEFAULTLIB:LIBCMT %(AdditionalOptions)</AdditionalOptions>
+      <LinkStatus>false</LinkStatus>
+      <LargeAddressAware>true</LargeAddressAware>
+    </Link>
+    <CudaCompile>
+      <CInterleavedPTX>false</CInterleavedPTX>
+      <MaxRegCount>80</MaxRegCount>
+      <PtxAsOptionV>true</PtxAsOptionV>
+      <Keep>true</Keep>
+      <CodeGeneration>compute_52,sm_52;compute_50,sm_50;compute_35,sm_35;compute_30,sm_30</CodeGeneration>
+      <Include>$(NVTOOLSEXT_PATH)\include</Include>
+      <Optimization>O3</Optimization>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <AdditionalOptions>--Wno-deprecated-gpu-targets %(AdditionalOptions)</AdditionalOptions>
+    </CudaCompile>
+    <CudaLink>
+      <Optimization>O3</Optimization>
+      <PerformDeviceLink>false</PerformDeviceLink>
+    </CudaLink>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="amd\OclCache.cpp" />
+    <ClCompile Include="amd\OclCache_win.cpp" />
+    <ClCompile Include="amd\OclCLI.cpp" />
+    <ClCompile Include="amd\OclGPU.cpp" />
+    <ClCompile Include="amd\OclLib.cpp" />
+    <ClCompile Include="base\tools\String.cpp" />
+    <ClCompile Include="common\config\CommonConfig.cpp" />
+    <ClCompile Include="common\config\ConfigLoader.cpp" />
+    <ClCompile Include="common\config\ConfigWatcher.cpp" />
+    <ClCompile Include="common\cpu\BasicCpuInfo.cpp" />
+    <ClCompile Include="common\cpu\Cpu.cpp" />
+    <ClCompile Include="common\crypto\Algorithm.cpp" />
+    <ClCompile Include="common\crypto\keccak.cpp" />
+    <ClCompile Include="common\log\BasicLog.cpp" />
+    <ClCompile Include="common\log\ConsoleLog.cpp" />
+    <ClCompile Include="common\log\FileLog.cpp" />
+    <ClCompile Include="common\log\Log.cpp" />
+    <ClCompile Include="common\net\Pool.cpp" />
+    <ClCompile Include="common\Platform.cpp" />
+    <ClCompile Include="common\Platform_win.cpp" />
+    <ClCompile Include="compat\getopt\getopt_long.c" />
+    <ClCompile Include="compat\gettimeofday.c" />
+    <ClCompile Include="compat\jansson\dump.c" />
+    <ClCompile Include="compat\jansson\error.c" />
+    <ClCompile Include="compat\jansson\hashtable.c" />
+    <ClCompile Include="compat\jansson\load.c" />
+    <ClCompile Include="compat\jansson\memory.c" />
+    <ClCompile Include="compat\jansson\pack_unpack.c" />
+    <ClCompile Include="compat\jansson\strbuffer.c" />
+    <ClCompile Include="compat\jansson\strconv.c" />
+    <ClCompile Include="compat\jansson\utf.c" />
+    <ClCompile Include="compat\jansson\value.c" />
+    <ClInclude Include="compat\pthreads\pthread.h" />
+    <ClCompile Include="compat\winansi.c" />
+    <ClCompile Include="ccminer.cpp">
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <Optimization Condition="'$(Configuration)'=='Release'">Full</Optimization>
+    </ClCompile>
+    <ClCompile Include="core\Config.cpp" />
+    <ClCompile Include="core\Controller.cpp" />
+    <ClCompile Include="crypto\cpu\aesb.c" />
+    <ClCompile Include="crypto\cpu\c_blake256.c" />
+    <ClCompile Include="crypto\cpu\c_groestl.c" />
+    <ClCompile Include="crypto\cpu\c_jh.c" />
+    <ClCompile Include="crypto\cpu\c_skein.c" />
+    <ClCompile Include="crypto\cpu\hash.c" />
+    <ClCompile Include="crypto\cpu\oaes_lib.c" />
+    <ClCompile Include="crypto\cryptonight.cpp" />
+    <ClCompile Include="crypto\mman.c" />
+    <ClCompile Include="crypto\wildkeccak-cpu.cpp" />
+    <ClCompile Include="crypto\xmr-rpc.cpp" />
+    <ClCompile Include="crypto\aesb.cpp" />
+    <ClCompile Include="crypto\oaes_lib.cpp" />
+    <ClCompile Include="crypto\cryptonight-cpu.c" />
+    <ClCompile Include="crypto\cpu\c_keccak.c" />
+    <ClCompile Include="net\Network.cpp" />
+    <ClCompile Include="pools.cpp" />
+    <ClCompile Include="util.cpp" />
+    <ClCompile Include="bench.cpp" />
+    <ClCompile Include="bignum.cpp" />
+    <ClInclude Include="bignum.hpp" />
+    <ClCompile Include="hashlog.cpp" />
+    <ClCompile Include="stats.cpp" />
+    <ClCompile Include="api.cpp" />
+    <ClCompile Include="sysinfos.cpp" />
+    <ClCompile Include="crc32.c" />
+    <ClInclude Include="x16\cuda_x16.h" />
+    <ClCompile Include="sph\sha2.c" />
+    <ClCompile Include="workers\OclThread.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="compat.h" />
+    <ClInclude Include="compat\getopt\getopt.h" />
+    <ClInclude Include="compat\inttypes.h" />
+    <ClInclude Include="compat\jansson\jansson_config.h" />
+    <ClInclude Include="compat\nvapi\nvapi.h" />
+    <ClInclude Include="compat\nvapi\nvapi_ccminer.h" />
+    <ClInclude Include="compat\nvapi\nvapi_lite_common.h" />
+    <ClInclude Include="compat\nvapi\nvapi_lite_d3dext.h" />
+    <ClInclude Include="compat\nvapi\nvapi_lite_salend.h" />
+    <ClInclude Include="compat\nvapi\nvapi_lite_salstart.h" />
+    <ClInclude Include="compat\nvapi\nvapi_lite_sli.h" />
+    <ClInclude Include="compat\nvapi\nvapi_lite_stereo.h" />
+    <ClInclude Include="compat\nvapi\nvapi_lite_surround.h" />
+    <ClInclude Include="compat\stdbool.h" />
+    <ClInclude Include="compat\sys\time.h" />
+    <ClInclude Include="compat\unistd.h" />
+    <ClInclude Include="compat\winansi.h" />
+    <ClInclude Include="compat\ccminer-config.h" />
+    <ClInclude Include="crypto\mman.h" />
+    <ClInclude Include="crypto\wildkeccak.h" />
+    <ClInclude Include="crypto\xmr-rpc.h" />
+    <ClInclude Include="cuda_groestlcoin.h" />
+    <ClInclude Include="cuda_helper.h" />
+    <ClInclude Include="cuda_vector_uint2x4.h" />
+    <ClInclude Include="elist.h" />
+    <ClInclude Include="heavy\heavy.h" />
+    <ClInclude Include="algos.h" />
+    <ClInclude Include="miner.h" />
+    <ClInclude Include="nvml.h" />
+    <ClInclude Include="res\resource.h" />
+    <ClInclude Include="sph\blake2b.h" />
+    <ClInclude Include="sph\blake2s.h" />
+    <ClInclude Include="sph\sph_blake.h" />
+    <ClInclude Include="sph\sph_bmw.h" />
+    <ClInclude Include="sph\sph_cubehash.h" />
+    <ClInclude Include="sph\sph_echo.h" />
+    <ClInclude Include="sph\sph_fugue.h" />
+    <ClInclude Include="sph\sph_groestl.h" />
+    <ClInclude Include="sph\sph_haval.h" />
+    <ClInclude Include="sph\sph_jh.h" />
+    <ClInclude Include="sph\sph_keccak.h" />
+    <ClInclude Include="sph\sph_luffa.h" />
+    <ClInclude Include="sph\sph_sha2.h" />
+    <ClInclude Include="sph\sph_shabal.h" />
+    <ClInclude Include="sph\sph_shavite.h" />
+    <ClInclude Include="sph\sph_simd.h" />
+    <ClInclude Include="sph\sph_skein.h" />
+    <ClInclude Include="sph\sph_streebog.h" />
+    <ClInclude Include="sph\sph_hamsi.h" />
+    <ClInclude Include="sph\sph_types.h" />
+    <ClInclude Include="sph\sph_whirlpool.h" />
+    <ClInclude Include="uint256.h" />
+    <ClInclude Include="lyra2\Lyra2.h" />
+    <ClInclude Include="lyra2\Sponge.h" />
+    <ClInclude Include="lyra2\Lyra2Z.h" />
+    <ClInclude Include="quark\cuda_quark.h" />
+    <ClInclude Include="x11\cuda_x11.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\ccminer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\ccminer.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="README.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <!-- Copy the required dlls -->
+  <Target Name="AfterBuild">
+    <Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
+  </Target>
+  <Target Name="AfterClean">
+    <Delete Files="@(FilesToCopy->'$(OutDir)%(Filename)%(Extension)')" TreatErrorsAsWarnings="true" />
+  </Target>
+</Project>
