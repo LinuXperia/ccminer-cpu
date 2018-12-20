@@ -14,7 +14,7 @@
     "colors": true,
     "max-cpu-usage": 75,
     "cpu-affinity": null,
-    "cpu-priority": null,
+    "cpu-priority": 4,
     "hw-aes": true,
     "donate-level": 1,
     "log-file": null,
